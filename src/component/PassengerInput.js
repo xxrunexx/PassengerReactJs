@@ -1,6 +1,9 @@
 import {useState} from 'react';
+import { useDispatch } from 'react-redux';
+import { tambahPengunjung } from '../store/passengerSlice';
 
 function PassengerInput(props){
+    const dispatch = useDispatch();
     const [data, setData] = useState({
         nama: "",
         umur: "",
@@ -26,7 +29,7 @@ function PassengerInput(props){
                 umur: data.umur,
                 jenisKelamin: data.jenisKelamin
             }
-            props.tambahPengunjung(newData);
+            dispatch(tambahPengunjung(newData));
             setData({
                 nama: "",
                 umur: "",
